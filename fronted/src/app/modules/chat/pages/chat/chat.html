@@ -1,9 +1,9 @@
 <div class="flex h-screen">
   <app-sidebar></app-sidebar>
 
-  <div class="chat-container w-full p-10">
+  <div class="chat-container w-full p-10 flex flex-col items-center gap-4">
     <!-- header -->
-    <div class="chat-header w-full flex flex-col">
+    <div class="chat-header w-full flex flex-col justify-between">
       <h3 class="text-3xl font-bold text-center text-balance bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">
         Chat con Agente: {{ id() }}
       </h3>
@@ -21,11 +21,10 @@
       </div>
     </div>
 
-    <!-- chat container -->
-    <div
-      class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative min-h-screen pb-20"
-    >
-      <div class="messages-container">
+    <!-- chat -->
+    <div class="w-full relative h-full flex flex-col gap-4 justify-between items-center">
+      <!-- chats container -->
+      <div class="messages-container w-full max-h-full overflow-y-auto">
         @for (message of messages; track trackByMessageId($index, message)) {
 
         <!-- Mensaje del Usuario -->
@@ -80,14 +79,13 @@
         }
       </div>
 
-      <form [formGroup]="msgForm" (submit)="sendMessage()" class="">
-        <div
-          class="flex items-center border border-gray-300 rounded-lg px-4 py-2 bg-white shadow-sm w-full"
-        >
+      <!-- Formulario de mensaje -->
+      <form [formGroup]="msgForm" (submit)="sendMessage()" class="w-full max-w-4xl">
+        <div class="flex items-center border-2 border-gray-900 rounded-xl px-4 py-2 bg-gray-900 shadow-sm w-full focus-within:border-cyan-400/30 transition-all duration-200">
           <input
             type="text"
             placeholder="Escribe tu mensaje aquí..."
-            class="flex-grow outline-none text-gray-800 bg-transparent placeholder-gray-400"
+            class="flex-grow outline-none text-white bg-transparent placeholder-gray-300"
             formControlName="message"
             [disabled]="isSending"
             autocomplete="off"
