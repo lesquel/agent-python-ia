@@ -1,12 +1,15 @@
 @let angentLocal = angent();
-<div class="card">
-    <div class="card-body">
-        <h5 class="card-title">{{angentLocal.name}}</h5>
-        <p class="card-text">
-            {{angentLocal.description}}
-        </p>
-        <a [routerLink]="[chatRoutes.base.path, angentLocal.agent_id]" class="btn btn-primary">
-            Iniciar Chat
-        </a>
-    </div>
+
+<div class="rounded-xl p-6 border flex flex-col gap-2 border-blue-800/50 transition-all hover:border-cyan-400/30">
+
+    <h3 class="text-xl font-semibold flex items-center">
+        <span class="w-3 h-3 rounded-full bg-green-400 mr-3 animate-pulse"></span>
+        {{angentLocal.name}}
+    </h3>
+    <p class="text-blue-100">
+        {{angentLocal.description}}
+    </p>
+    <a [routerLink]="[chatRoutes.base.path, angentLocal.agent_id]" class="px-5 py-2 max-w-[135px] text-center rounded-lg bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 transition-all">
+        Iniciar Chat
+    </a>
 </div>

@@ -1,10 +1,28 @@
-<div class="flex h-screen">
-    <!-- Sidebar visible solo si sidebarVisible es true -->
-    <!-- <div> -->
-    <!-- </div> -->
+<div class="container mx-auto px-4 py-12 max-w-5xl h-screen flex flex-col justify-center items-center">
+        <!-- Header -->
+        <header class="text-center">
+            <h1 class="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">
+                El Chat
+            </h1>
+            <p class="text-lg text-blue-100 leading-relaxed text-balance">
+                Bienvenido a tu centro de control de agentes IA. Aquí podrás interactuar con tus asistentes inteligentes, 
+                diseñados para potenciar tu productividad y creatividad. Elige entre nuestros especialistas digitales 
+                y comienza una conversación que transformará tu flujo de trabajo.
+            </p>
+        </header>
 
-    <!-- Contenido principal -->
-        <!-- <h1 class="text-3xl font-bold">El chat</h1> -->
+        <!-- Separador -->
+        <div class="relative my-10 w-xs">
+            <div class="absolute inset-0 flex items-center">
+                <div class="w-full border-t border-blue-700 bottom-1"></div>
+            </div>
+            <div class="relative flex justify-center">
+                <span class="px-4 py-1 bg-[#0f172a] text-blue-300 text-sm font-medium rounded-sm">
+                    Selecciona tu agente
+                </span>
+            </div>
+        </div>
 
+        <!-- Agentes -->
         <app-agent-list></app-agent-list>
-</div> 
+</div>
