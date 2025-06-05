@@ -1,0 +1,11 @@
+<button class="flex items-center gap-3 w-full p-3 rounded-md hover:bg-gray-700 transition-colors duration-200 cursor-pointer">
+    <!-- Icono SVG con property binding -->
+    <div class="flex-shrink-0">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="icon" />
+        </svg>
+    </div>
+    
+    <!-- Texto -->
+    <span class="text-left truncate">{{ text }}</span>
+</button>

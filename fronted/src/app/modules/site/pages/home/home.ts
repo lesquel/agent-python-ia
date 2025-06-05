@@ -1,13 +1,23 @@
+// import { RouterLink } from '@angular/router';
+// import { siteConfigRoutes } from '../../config/site-config.routes';
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { siteConfigRoutes } from '../../config/site-config.routes';
+import { CommonModule } from '@angular/common'; 
 import { AgentList } from "../../../agent/components/agent-list/agent-list";
+import { SidebarComponent } from "../../components/sidebar/sidebar";
+import { InputText } from "../../components/input-text/input-text";
 
 @Component({
   selector: 'app-home',
-  imports: [ AgentList],
+  standalone: true,
+  imports: [
+    AgentList,
+    SidebarComponent,
+    CommonModule,
+    InputText
+  ],
   templateUrl: './home.html'
 })
+
 export class Home {
-  protected siteRoutes = siteConfigRoutes;
+  sidebarVisible = true;
 }
