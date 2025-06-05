@@ -12,10 +12,11 @@ import { Subscription, interval } from 'rxjs';
 import { BotText } from '../../component/bot-text/bot-text';
 import { MeText } from '../../component/me-text/me-text';
 import { ChatMessage } from '../../models/chat-model';
+import { SidebarComponent } from "../../component/sidebar/sidebar";
 
 @Component({
   selector: 'app-chat',
-  imports: [ReactiveFormsModule, CommonModule, BotText, MeText],
+  imports: [ReactiveFormsModule, CommonModule, BotText, MeText, SidebarComponent],
   templateUrl: './chat.html',
 })
 export class Chat implements OnDestroy {
