@@ -54,7 +54,7 @@ export class Chat implements OnDestroy {
         event: 'RunResponse',
         run_id: this.generateId(),
         session_id: 'wrirhfioerfoi2',
-        created_at: Date.now(),
+        created_at: Date.now(),   
         content_type: 'str',
       })
       .subscribe({

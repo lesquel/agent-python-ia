@@ -1,6 +1,10 @@
 <div class="chat-container">
     <div class="chat-header w-full flex flex-col">
+        <!--este es el titulo del chat y nombre del agente-->
         <h3 class="text-3xl font-bold text-center">Chat con Agente: {{ id() }}</h3>
+        
+        
+        <!--Es el estado del chat-->
         <div class="status-indicator w-full" [ngClass]="{
       'sending': isSending,
       'idle': !isSending
@@ -16,10 +20,11 @@
 
             <!-- Mensaje del Usuario -->
             @if (isUserMessage(message)) {
-            <app-me-text [message]="message.displayedContent" [label]="getEventLabel(message.event)"
+                <app-me-text [message]="message.displayedContent" [label]="getEventLabel(message.event)"
                 [timestamp]="formatTimestamp(message.timestamp)"></app-me-text>
             }
-
+            
+            <!-- Mensaje del Usuario -->
             @if (!isUserMessage(message) && !isSystemMessage(message)) {
             <app-bot-text [message]="message" [displayContent]="getDisplayContent(message)"
                 [label]="getEventLabel(message.event)" [timestamp]="formatTimestamp(message.timestamp)"></app-bot-text>
