@@ -1,25 +1,27 @@
 <div class="flex h-screen">
   <app-sidebar></app-sidebar>
 
-  <div class="chat-container w-full p-10 flex flex-col items-center justify-between">
+  <div class="chat-container w-full p-10">
+    <!-- header -->
     <div class="chat-header w-full flex flex-col">
-      <h3 class="text-3xl font-bold text-center">
+      <h3 class="text-3xl font-bold text-center text-balance bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">
         Chat con Agente: {{ id() }}
       </h3>
       <div
-        class="status-indicator w-full"
+        class="status-indicator max-w-[40px] text-center"
         [ngClass]="{
             'sending': isSending,
             'idle': !isSending
           }"
       >
         <span class="status-dot"></span>
-        <span class="status-text text-center"
+        <span class="status-text text-center text-xs px-4 py-2 rounded-2xl bg-gray-900 border-gray-800"
           >{{ isSending ? 'Enviando...' : 'Listo' }}</span
         >
       </div>
     </div>
 
+    <!-- chat container -->
     <div
       class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative min-h-screen pb-20"
     >
