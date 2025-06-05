@@ -1,0 +1,89 @@
+<div class="chat-container">
+    <div class="chat-header w-full flex flex-col">
+        <h3 class="text-3xl font-bold text-center">Chat con Agente: {{ id() }}</h3>
+        <div class="status-indicator w-full" [ngClass]="{
+      'sending': isSending,
+      'idle': !isSending
+    }">
+            <span class="status-dot"></span>
+            <span class="status-text text-center">{{ isSending ? 'Enviando...' : 'Listo' }}</span>
+        </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative min-h-screen pb-20">
+        <div class="messages-container">
+            @for (message of messages; track trackByMessageId($index, message)) {
+
+            <!-- Mensaje del Usuario -->
+            @if (isUserMessage(message)) {
+            <app-me-text [message]="message.displayedContent" [label]="getEventLabel(message.event)"
+                [timestamp]="formatTimestamp(message.timestamp)"></app-me-text>
+            }
+
+            @if (!isUserMessage(message) && !isSystemMessage(message)) {
+            <app-bot-text [message]="message" [displayContent]="getDisplayContent(message)"
+                [label]="getEventLabel(message.event)" [timestamp]="formatTimestamp(message.timestamp)"></app-bot-text>
+            }
+
+            <!-- Mensaje del Sistema -->
+            @if (isSystemMessage(message)) {
+            <div class="system-message-container">
+                <div class="system-message-wrapper">
+                    <div class="system-message-content">
+                        <span class="system-icon">ℹ️</span>
+                        <span class="system-text">{{ message.displayedContent }}</span>
+                        <span class="system-timestamp">{{ formatTimestamp(message.timestamp) }}</span>
+                    </div>
+                </div>
+            </div>
+            }
+
+            }
+
+            @if (messages.length === 0 && !isSending) {
+            <div class="chat chat-start">
+                <div class="chat-header">
+                    <span class="text-xs opacity-50">System</span>
+                    <time class="text-xs opacity-50"></time>
+                </div>
+                <div class="chat-bubble"> No hay mensajes aún. Envía tu primer mensaje para comenzar la conversación.
+                </div>
+            </div>
+            }
+
+            @if (isSending && messages.length === 1) {
+            <div class="loading-state">
+                <div class="loading-dots">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <p>El agente está procesando tu mensaje...</p>
+            </div>
+            }
+        </div>
+
+        <form [formGroup]="msgForm" (submit)="sendMessage()" class="chat-input-form">
+            <div class="input-container">
+                <input type="text" placeholder="Escribe tu mensaje aquí..." class="input" formControlName="message"
+                    [disabled]="isSending" autocomplete="off" />
+
+                <button type="submit" class="send-button" [disabled]="isSending || !msgForm.valid"
+                    [title]="isSending ? 'Enviando...' : 'Enviar mensaje'">
+                    @if (!isSending) {
+                    <span class="btn btn-primary">→</span>
+                    }
+                    @if (isSending) {
+                    <span className="loading loading-spinner loading-xl"></span>
+                    }
+                </button>
+            </div>
+
+            @if (msgForm.get('message')?.invalid && msgForm.get('message')?.touched) {
+            <div class="form-error">
+                Por favor, escribe un mensaje antes de enviar.
+            </div>
+            }
+        </form>
+    </div>
+</div>

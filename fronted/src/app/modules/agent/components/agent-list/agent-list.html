@@ -1,0 +1,7 @@
+@let agentsLocal = agents.value();
+
+<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
+    @for (agent of agentsLocal; track agent.agent_id) {
+    <app-agent-card [angent]="agent"></app-agent-card>
+    }
+</div>

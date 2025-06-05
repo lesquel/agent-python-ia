@@ -1,0 +1,51 @@
+@let messageLocal = message();
+
+<div class="chat chat-start">
+    <div class="chat-bubble">
+        {{ message() }}
+    </div>
+</div>
+
+<div class="bot-message-container">
+    <div class="bot-message-wrapper" [ngClass]="{
+       'streaming': messageLocal.isStreaming,
+       'completed': messageLocal.isComplete
+     }">
+        <div class="bot-message-header">
+            <div class="bot-message-info">
+                <span class="bot-label">{{ label() }}</span>
+                <span class="bot-timestamp">{{ timestamp() }}</span>
+            </div>
+
+            <!-- Status Indicators para Bot -->
+            <div class="bot-message-status">
+                @if (messageLocal.isStreaming) {
+                <span class="streaming-indicator" title="Escribiendo...">
+                    <span class="typing-dots">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </span>
+                </span>
+                }
+                @if (messageLocal.isComplete && !messageLocal.isStreaming) {
+                <span class="complete-indicator" title="Completado">✓</span>
+                }
+            </div>
+        </div>
+
+        <!-- Bot Message Content -->
+        <div class="bot-message-content" [innerHTML]="displayContent()"
+            [ngClass]="{ 'typewriter-cursor': messageLocal.isStreaming }">
+        </div>
+
+        <!-- Progress Bar for Streaming Bot Messages -->
+        @if (messageLocal.isStreaming && messageLocal.content.length > 0) {
+        <div class="bot-progress-bar">
+            <div class="bot-progress-fill"
+                [style.width.%]="(messageLocal.displayedContent.length / messageLocal.content.length) * 100">
+            </div>
+        </div>
+        }
+    </div>
+</div>

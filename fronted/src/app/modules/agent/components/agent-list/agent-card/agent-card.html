@@ -1,0 +1,12 @@
+@let angentLocal = angent();
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">{{angentLocal.name}}</h5>
+        <p class="card-text">
+            {{angentLocal.description}}
+        </p>
+        <a [routerLink]="[chatRoutes.base.path, angentLocal.agent_id]" class="btn btn-primary">
+            Iniciar Chat
+        </a>
+    </div>
+</div>
