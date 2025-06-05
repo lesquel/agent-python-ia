@@ -1,13 +1,6 @@
 @let messageLocal = message();
-
-<div class="chat chat-start">
-    <div class="chat-bubble">
-        {{ message() }}
-    </div>
-</div>
-
-<div class="bot-message-container">
-    <div class="bot-message-wrapper" [ngClass]="{
+<div class="bot-message-container chat chat-start">
+    <div class="bot-message-wrapper chat-bubble" [ngClass]="{
        'streaming': messageLocal.isStreaming,
        'completed': messageLocal.isComplete
      }">
