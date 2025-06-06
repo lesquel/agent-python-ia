@@ -1,4 +1,4 @@
-<div class="flex h-screen max-h-full">
+<div class="flex min-h-screen h-full relative">
   <app-sidebar></app-sidebar>
 
   <div class="chat-container w-full p-10 flex flex-col items-center gap-4 max-h-full">
@@ -24,7 +24,7 @@
     <!-- chat -->
     <div class="w-full relative h-full flex flex-col gap-4 justify-between items-center max-h-full">
       <!-- chats container -->
-      <div class="messages-container w-full max-h-full overflow-y-auto">
+      <div class="messages-container w-full max-h-full">
         @for (message of messages; track trackByMessageId($index, message)) {
 
         <!-- Mensaje del Usuario -->
@@ -80,7 +80,7 @@
       </div>
 
       <!-- Formulario de mensaje -->
-      <form [formGroup]="msgForm" (submit)="sendMessage()" class="w-full max-w-4xl">
+      <form [formGroup]="msgForm" (submit)="sendMessage()" class="w-full max-w-4xl sticky bottom-0 bg-[#1d232a] p-4 rounded-xl border-blue-800/50 border">
         <div class="flex items-center border-2 max-h-[59px] min-h-[59px] border-gray-900 rounded-xl px-4 py-2 bg-gray-900 shadow-sm w-full focus-within:border-cyan-400/30 transition-all duration-200">
           <input
             type="text"
@@ -107,7 +107,7 @@
 
         @if (msgForm.get('message')?.invalid && msgForm.get('message')?.touched)
         {
-        <div class="form-error">
+        <div class="form-error text-center">
           Por favor, escribe un mensaje antes de enviar.
         </div>
         }
