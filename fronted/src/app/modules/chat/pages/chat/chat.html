@@ -1,7 +1,7 @@
-<div class="flex h-screen">
+<div class="flex h-screen max-h-full">
   <app-sidebar></app-sidebar>
 
-  <div class="chat-container w-full p-10 flex flex-col items-center gap-4">
+  <div class="chat-container w-full p-10 flex flex-col items-center gap-4 max-h-full">
     <!-- header -->
     <div class="chat-header w-full flex flex-col justify-between">
       <h3 class="text-3xl font-bold text-center text-balance bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">
@@ -22,7 +22,7 @@
     </div>
 
     <!-- chat -->
-    <div class="w-full relative h-full flex flex-col gap-4 justify-between items-center">
+    <div class="w-full relative h-full flex flex-col gap-4 justify-between items-center max-h-full">
       <!-- chats container -->
       <div class="messages-container w-full max-h-full overflow-y-auto">
         @for (message of messages; track trackByMessageId($index, message)) {
