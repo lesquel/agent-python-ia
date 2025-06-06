@@ -13,7 +13,10 @@ export class AgentDataService {
   private httpClient = inject(HttpClient);
   getAgents() {
     return httpResource(() => this.apiAgents + this.urlAgents, {
-      parse: (response: any) => adaptAgents(response),
+      parse: (response: any) => {
+        console.log(response);
+        return adaptAgents(response);
+      },
     });
   }
 }
