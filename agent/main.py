@@ -98,4 +98,4 @@ app.add_middleware(
 )
 
 if __name__ == "__main__":
-    serve_playground_app("002:app", reload=True)
+    serve_playground_app("main:app", reload=True)

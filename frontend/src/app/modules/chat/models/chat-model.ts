@@ -1,17 +1,16 @@
 // Tipos base para los eventos del agente
-export type EventType = 'RunResponse' | 'UpdatingMemory' | 'RunCompleted';
-export type ContentType = 'str' | 'json' | 'markdown';
+export type EventType =
+  | 'UserMessage'
+  | 'RunResponse'
+  | 'RunStarted'
+  | 'RunCompleted'
+  | 'UpdatingMemory'
+  | 'ToolCall'
+  | 'Error'
+  | 'Cancelled';
+export type ContentType = 'text' | 'image' | 'file' | 'json';
 
 // Interfaz base para todos los eventos
-export interface BaseAgentEvent {
-  content: string;
-  content_type: ContentType;
-  event: EventType;
-  run_id: string;
-  agent_id: string;
-  session_id: string;
-  created_at: number;
-}
 
 // Métricas para eventos completados
 export interface EventMetrics {
@@ -78,14 +77,24 @@ export interface AgentState {
   error?: string;
 }
 
+export interface BaseAgentEvent {
+  content: string;
+  agent_id: string;
+  event: EventType;
+  run_id: string;
+  session_id: string;
+  created_at: number;
+  content_type: ContentType;
+  tool_name?: string;
+  user_id?: string;
+}
 
 export interface ChatMessage {
   id: string;
   content: string;
-  displayedContent: string; // Contenido que se muestra gradualmente
+  displayedContent: string;
   isComplete: boolean;
   isStreaming: boolean;
-  event: string;
+  event: EventType;
   timestamp: number;
-  rawContent?: string; // Contenido completo sin procesar
 }
