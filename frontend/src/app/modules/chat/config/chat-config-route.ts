@@ -5,8 +5,8 @@ export const chatConfigRoutes = {
   },
   children: {
     chat: {
-      path: ':id',
-      url: '/chat/:id',
+      path: ':agentId',
+      url: '/chat/:agentId',
     },
   },
 };
