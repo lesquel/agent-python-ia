@@ -1,8 +1,7 @@
-import { HttpClient, httpResource } from '@angular/common/http';
-import { inject, Injectable, signal } from '@angular/core';
+import { httpResource } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { environment } from '@environments/environment.development';
-import { adaptAgents } from '../adapters/agent-adapter';
-import { map } from 'rxjs';
+import { adaptAgent, adaptAgents } from '../adapters/agent-adapter';
 
 @Injectable({
   providedIn: 'root',
@@ -15,6 +14,15 @@ export class AgentDataService {
       parse: (response: any) => {
         console.log(response);
         return adaptAgents(response);
+      },
+    });
+  }
+
+  getAgentById(id: string) {
+    return httpResource(() => this.apiAgents + this.urlAgents + '/' + id, {
+      parse: (response: any) => {
+        console.log(response);
+        return adaptAgent(response);
       },
     });
   }
