@@ -13,7 +13,6 @@ import { CommonModule } from '@angular/common';
 import type { Subscription } from 'rxjs';
 import type { ChatMessage, EventType } from './../../models/chat-model';
 import { SseService, type StreamResponse } from './../../services/sse-service';
-<<<<<<< HEAD
 import { MarkdownModule } from 'ngx-markdown';
 
 // Servicios de utilidades
@@ -23,15 +22,10 @@ import { TypewriterService } from './../../services/typewriter.service';
 import { ScrollManagerService } from './../../services/scroll-manager.service';
 import { MessageManagerService } from './../../services/message-manager.service';
 import { SidebarComponent } from '../../components/sidebar/sidebar';
-=======
-import { MarkdownModule, provideMarkdown } from 'ngx-markdown';
-import { SidebarComponent } from "../../component/sidebar/sidebar";
->>>>>>> 68939cc63428f5fe0e0ab723e9f9b838ea685d34
 
 @Component({
   selector: 'app-chat',
   standalone: true,
-<<<<<<< HEAD
   imports: [
     ReactiveFormsModule,
     CommonModule,
@@ -40,11 +34,6 @@ import { SidebarComponent } from "../../component/sidebar/sidebar";
   ],
   templateUrl: './chat.html',
   styleUrls: ['./chat.css'],
-=======
-  imports: [ReactiveFormsModule, CommonModule, MarkdownModule, SidebarComponent],
-  providers: [provideMarkdown()],
-  templateUrl: './chat.html',
->>>>>>> 68939cc63428f5fe0e0ab723e9f9b838ea685d34
 })
 export class Chat implements OnDestroy, AfterViewChecked {
   @ViewChild('messagesContainer', { static: false })
