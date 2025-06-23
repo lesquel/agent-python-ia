@@ -9,6 +9,6 @@ import { chatConfigRoutes } from '@app/modules/chat/config/chat-config-route';
   templateUrl: './agent-card.html'
 })
 export class AgentCard {
-  angent = input.required<AgentModel>();
+  agent = input.required<AgentModel>();
   protected chatRoutes = chatConfigRoutes;
 }

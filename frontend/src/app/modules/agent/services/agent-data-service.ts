@@ -8,10 +8,9 @@ import { map } from 'rxjs';
   providedIn: 'root',
 })
 export class AgentDataService {
-  private apiAgents = environment.apiAgents;
-  private urlAgents = '/v1/playground/agents';
+  private agentsDirectUrl = environment.agentsDirectUrl;
   getAgents() {
-    return httpResource(() => this.apiAgents + this.urlAgents, {
+    return httpResource(() => this.agentsDirectUrl, {
       parse: (response: any) => {
         console.log(response);
         return adaptAgents(response);

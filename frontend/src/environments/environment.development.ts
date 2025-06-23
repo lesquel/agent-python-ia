@@ -1,4 +1,5 @@
 export const environment = {
     production: false,
-    apiAgents: 'http://localhost:7777/',
+    baseUrl: 'http://localhost:8000/',
+    agentsDirectUrl:'http://localhost:8000/agents/v1/playground/agents',
 };
