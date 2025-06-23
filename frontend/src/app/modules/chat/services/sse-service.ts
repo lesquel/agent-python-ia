@@ -1,5 +1,8 @@
 import { Injectable } from "@angular/core"
 import { Observable } from "rxjs"
+import { environment } from '@environments/environment.development';
+import { env } from "process";
+
 
 export interface SSEMessage {
   content: string
@@ -28,7 +31,7 @@ export interface StreamResponse {
   providedIn: "root",
 })
 export class SseService {
-  private readonly apiUrl = "http://localhost:7777/v1/playground/agents"
+  private readonly apiUrl = environment.agentsDirectUrl;
 
   streamFromAgent(agentId: string, message: string): Observable<StreamResponse> {
     const url = `${this.apiUrl}/${agentId}/runs`

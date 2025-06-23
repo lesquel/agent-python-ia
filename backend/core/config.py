@@ -1,10 +1,11 @@
-from pydantic_settings import BaseSettings
+from .settings import AppSettings, DatabaseSettings, JWTSettings, AgentsSettings
 
-class Settings(BaseSettings):
-    mongodb_uri: str
-    mongo_db_name: str
 
-    class Config:
-        env_file = ".env"
+class Settings:
+    app = AppSettings()
+    database = DatabaseSettings()
+    jwt = JWTSettings()
+    agents = AgentsSettings()
+
 
 settings = Settings()
