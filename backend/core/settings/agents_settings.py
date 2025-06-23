@@ -3,7 +3,6 @@ from pydantic_settings import BaseSettings
 
 
 class AgentsSettings(BaseSettings):
-    agent_storage: str = "tmp/agents.db"
     model_id: str = "llama-3.3-70b-versatile"
     groq_api_key: str
 

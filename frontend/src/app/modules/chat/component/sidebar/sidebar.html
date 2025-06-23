@@ -2,14 +2,19 @@
 
     <div class=" flex flex-col h-full">
         <!-- Botón para cerrar -->
-        <button class="mb-4 self-end text-gray-400 cursor-pointer hover:text-white text-xl" aria-label="Cerrar menú">
-            ✕
-        </button>
+        <mat-icon class="mb-4 self-end text-gray-400 cursor-pointer hover:text-white text-xl">
+            close
+        </mat-icon>
 
+        <button [routerLink]="siteRoutesConfig.base.url"
+            class="flex justify-center gap-2 bordertext-center rounded-lg bg-gradient-to-l from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 transition-all cursor-pointer py-2 px-4 mb-4 text-white font-semibold">
+            <mat-icon>home</mat-icon>
+            Ver otros agentes
+        </button>
         <!-- Botón de nuevo chat -->
         <button
-            class="bordertext-center rounded-lg bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 transition-all cursor-pointer py-2 px-4 mb-4 text-white font-semibold">
-            + New chat
+            class=" flex justify-center gap-2 bordertext-center rounded-lg bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 transition-all cursor-pointer py-2 px-4 mb-4 text-white font-semibold">
+            <mat-icon>edit_square</mat-icon> New chat
         </button>
 
         <!-- Historial de chats -->
