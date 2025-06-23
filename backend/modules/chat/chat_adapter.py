@@ -1,4 +1,4 @@
-from .models.chat_model import ChatSystemModel, ChatUserModel, ChatSystemModelInDB, ChatUserModelInDB
+from .schemas.chat_model import ChatSystemModel, ChatUserModel, ChatSystemModelInDB, ChatUserModelInDB
 
 def chat_system_in_chat_system_in_db(chat_system: dict) -> ChatSystemModelInDB:
     chat_system["_id"] = str(chat_system["_id"])  # convertir ObjectId a str

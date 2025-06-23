@@ -1,9 +1,20 @@
-from typing import Union
-from modules.chat.chat_controller import chat_router
+import uvicorn
 from fastapi import FastAPI
 
+from agno_agents.agent_app import agent_app
+
+from modules.chat.chat_routes import chat_router
+from modules.user import users_router
+from modules.auth import auth_router
+
 app = FastAPI()
+app.mount("/agents", agent_app)
 
 
-# app.include_router(chat_router, prefix="/chat", tags=["chat"])
-app.include_router(chat_router)
+app.include_router(chat_router, prefix="/chat", tags=["chat"])
+app.include_router(users_router, prefix="/users", tags=["user"])
+app.include_router(auth_router, prefix="/auth", tags=["auth"])
+
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
