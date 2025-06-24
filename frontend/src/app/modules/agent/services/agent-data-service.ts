@@ -17,12 +17,4 @@ export class AgentDataService {
     });
   }
 
-  getAgentById(id: string) {
-    return httpResource(() => this.apiAgents + this.urlAgents + '/' + id, {
-      parse: (response: any) => {
-        console.log(response);
-        return adaptAgent(response);
-      },
-    });
-  }
 }

@@ -120,7 +120,7 @@ export class SseService {
     })
   }
 
-  // MÉTODO CORREGIDO para extraer objetos JSON completos
+  // MÉTODO CORREGIDO para extraer objetos JSON completosw
   private extractCompleteJsonObjects(buffer: string): { jsonObjects: string[]; remainingBuffer: string } {
     const jsonObjects: string[] = []
     let braceCount = 0
