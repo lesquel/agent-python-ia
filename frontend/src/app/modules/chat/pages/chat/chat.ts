@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
 import type { Subscription } from 'rxjs';
 import type { ChatMessage, EventType } from './../../models/chat-model';
 import { SseService, type StreamResponse } from './../../services/sse-service';
-import { MarkdownModule } from 'ngx-markdown';
+import { MarkdownModule, MarkdownService } from 'ngx-markdown';
 
 // Servicios de utilidades
 import { ChatUtilsService } from './../../services/chat-utils.service';
@@ -32,6 +32,7 @@ import { SidebarComponent } from '../../components/sidebar/sidebar';
     MarkdownModule,
     SidebarComponent,
   ],
+  providers: [MarkdownModule],
   templateUrl: './chat.html',
   styleUrls: ['./chat.css'],
 })

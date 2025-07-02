@@ -2,7 +2,6 @@
   <!-- Sidebar placeholder - puedes agregar tu sidebar aquí -->
   <app-sidebar></app-sidebar>
 
-
   <div class="chat-container h-screen w-full p-4 md:p-8 flex flex-col gap-4 max-h-screen">
     <!-- Header mejorado -->
     <div
@@ -94,6 +93,7 @@
           </div>
           <div class="chat-bubble bg-base-200 text-base-content max-w-xs md:max-w-md lg:max-w-2xl">
             <div class="prose prose-sm max-w-none">
+                <!-- {{ message.displayedContent }} -->
               <markdown [data]="message.displayedContent"></markdown>
             </div>
             @if (message.isStreaming && message.displayedContent.length < message.content.length) { <span
