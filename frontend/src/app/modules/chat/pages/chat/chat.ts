@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
 import type { Subscription } from 'rxjs';
 import type { ChatMessage, EventType } from './../../models/chat-model';
 import { SseService, type StreamResponse } from './../../services/sse-service';
-import { MarkdownModule, MarkdownService } from 'ngx-markdown';
+import { MarkdownModule } from 'ngx-markdown';
 
 // Servicios de utilidades
 import { ChatUtilsService } from './../../services/chat-utils.service';
